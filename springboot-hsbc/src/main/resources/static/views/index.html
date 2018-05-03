@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Angular Demo Page</title>
+</head>
+<body ng-app="demo">
+	<hr />
+	<div class="container" ng-controller="EmployeeController">
+		<h3>Employees View</h3>
+		<br>
+		<div style="overflow: auto">
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<td>Id</td>
+						<td>EmpName</td>
+						<td>Designation</td>
+						<td>DeptName</td>
+						<td>State</td>
+						<td></td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="employee in allEmployees">
+						<td>{{employee.empId}}</td>
+						<td>{{employee.name}}</td>
+						<td>{{employee.designation}}</td>
+						<td>{{employee.department}}</td>
+						<td>{{employee.state}}</td>
+						<td><input type="button" value="Salary"
+							ng-click="getSalary(employee.empId)" class="btn btn-danger" /></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<br>
+
+		<div style="overflow: auto">
+			<h3>Salary View :</h3>
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<td>EmpId</td>
+						<td>PreTax salary</td>
+						<td>State Tax</td>
+						<td>Federal Tax</td>
+						<td>Post Tax salary</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>{{salary.empId}}</td>
+						<td>{{salary.preTax}}</td>
+						<td>{{salary.taxes.stateTax}}</td>
+						<td>{{salary.taxes.federalTax}}</td>
+						<td>{{salary.postTax}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+
+
+
+</body>
+<script src="js/lib/angular.min.js"></script>
+<script src="js/lib/ui-bootstrap-tpls-2.5.0.min.js"></script>
+<script src="js/app/app.js"></script>
+<script src="js/app/EmployeeController.js"></script>
+<script src="js/app/EmployeeService.js"></script>
+<link rel="stylesheet" href="css/lib/bootstrap.min.css" />
+<link rel="stylesheet" href="css/app/app.css" />
+</html>
